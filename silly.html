@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Silly</title>
+</head>
+<body>
+  <div><span>Hello</span> <span>world</span></div>
+  <script type="text/javascript">
+    var myDiv = document.createElement('div');
+
+    var helloSpan = document.createElement('span');
+    helloSpan.appendChild(document.createTextNode('Hello'));
+
+    var worldSpan = document.createElement('span');
+    worldSpan.appendChild(document.createTextNode('world'));
+
+    myDiv.appendChild(helloSpan);
+    myDiv.appendChild(document.createTextNode(' '));
+    myDiv.appendChild(worldSpan);
+
+    document.body.appendChild(myDiv);
+  </script>
+</body>
+</html>

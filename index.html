@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Declarative UIs / HQML</title>
+  <link rel="stylesheet" href="revealjs/css/reveal.css">
+  <link rel="stylesheet" href="revealjs/css/theme/night.css">
+  <link rel="stylesheet" href="monokai_sublime.css">
+  <script src="revealjs/lib/js/head.min.js"></script>
+  <script src="revealjs/js/reveal.min.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown="slides.md"
+               data-separator="^\n---$"
+               data-vertical="^\n--$"
+               data-charset="utf-8">
+      </section>
+    </div>
+  </div>
+  <script type="text/javascript">
+    Reveal.initialize({
+      progress: false,
+      transition: 'fade',
+      transitionSpeed: 'fast',
+      dependencies: [
+        { src: 'revealjs/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'revealjs/plugin/markdown/markdown.js',
+          condition: function() { return !!document.querySelector( '[data-markdown]' ); },
+          callback: function() { Array.prototype.forEach.call(document.querySelectorAll('section > p'), function(e) {
+            if(e.innerHTML.indexOf('&lt;') === 0) {
+              e.innerHTML = e.innerHTML.substr(4);
+              e.classList.add('fragment');
+            }
+          }); }
+        },
+        { src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+    });
+  </script>
+</body>
+</html>
