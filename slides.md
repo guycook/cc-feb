@@ -54,6 +54,8 @@ document.body.appendChild(myDiv);
 
 <Clarity of purpose
 
+<UI state is managed - stays 'in sync'
+
 ---
 ## Real world example
 
@@ -62,17 +64,28 @@ document.body.appendChild(myDiv);
 ```html
 <form>
   <div>
-    <label><input type="checkbox" id="tandc"> Accept Terms and Conditions</label>
+    <label><input type="checkbox" name="tandc"> Accept Terms and Conditions</label>
   </div>
-  <button type="submit" id="signup">Sign up!</button>
+  <button type="submit" name="signup">Sign up!</button>
 </form>
 ```
 
 ---
 ## Imperative Implementation
 
+```html
+<form>
+  <div>
+    <label><input type="checkbox" name="tandc" id="tandc"> Accept Terms and Conditions</label>
+  </div>
+  <button type="submit" name="signup" id="signup">Sign up!</button>
+</form>
+```
+
 ```javascript
 $(function() {
+  $('#signup').prop('disabled', !$('#tandc').prop('checked'));
+
   $('#tandc').on('change', function() {
     $('#signup').prop('disabled', !$(this).prop('checked'));
   });
@@ -80,3 +93,33 @@ $(function() {
 ```
 
 ---
+## Fantasy Implementation
+
+```html
+<form>
+  <div>
+    <label><input type="checkbox" name="tandc" id="tandc"> Accept Terms and Conditions</label>
+  </div>
+  <button type="submit" name="signup" disabled="!tandc.checked">Sign up!</button>
+</form>
+```
+
+---
+## Declarative Implementation
+
+```html
+<form>
+  <div>
+    <label><input type="checkbox" name="tandc" data-bind="checked: termsAccepted"> Accept Terms and Conditions</label>
+  </div>
+  <button type="submit" name="signup" data-bind="enable: termsAccepted">Sign up!</button>
+</form>
+```
+
+```javascript
+viewModel = {
+  termsAccepted: ko.observable(false)
+};
+
+ko.applyBindings(viewModel);
+```

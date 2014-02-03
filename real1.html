@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Real world</title>
+  <title>Real world jQuery</title>
   <script src="jquery-2.1.0.min.js"></script>
 </head>
 <body>
   <form>
     <div>
-      <label><input type="checkbox" id="tandc"> Accept Terms and Conditions</label>
+      <label><input type="checkbox" id="tandc" name="tandc"> Accept Terms and Conditions</label>
     </div>
-    <button type="submit" id="signup">Sign up!</button>
+    <button type="submit" id="signup" name="signup">Sign up!</button>
   </form>
   <script type="text/javascript">
+    $('#signup').prop('disabled', !$('#tandc').prop('checked'));
+
     $(function() {
       $('#tandc').on('change', function() {
         $('#signup').prop('disabled', !$(this).prop('checked'));

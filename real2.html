@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Real world Knockout</title>
+  <script src="knockout-3.0.0.js"></script>
+</head>
+<body>
+  <form>
+    <div>
+      <label><input type="checkbox" name="tandc" data-bind="checked: termsAccepted"> Accept Terms and Conditions</label>
+    </div>
+    <button type="submit" name="signup" data-bind="enable: termsAccepted">Sign up!</button>
+  </form>
+  <script type="text/javascript">
+    viewModel = {
+      termsAccepted: ko.observable(false)
+    };
+
+    ko.applyBindings(viewModel);
+  </script>
+</body>
+</html>
