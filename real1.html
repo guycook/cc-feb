@@ -9,16 +9,24 @@
 <body>
   <form>
     <div>
+      <label><input type="radio" name="plan" value="hobbyist" checked="checked"> Hobbyist</label>
+      <label><input type="radio" name="plan" value="enterprise"> Enterprise</label>
+    </div>
+    <div>
       <label><input type="checkbox" id="tandc" name="tandc"> Accept Terms and Conditions</label>
     </div>
     <button type="submit" id="signup" name="signup">Sign up!</button>
   </form>
   <script type="text/javascript">
-    $('#signup').prop('disabled', !$('#tandc').prop('checked'));
-
     $(function() {
+      $('#signup').prop('disabled', !$('#tandc').prop('checked'));
+
       $('#tandc').on('change', function() {
         $('#signup').prop('disabled', !$(this).prop('checked'));
+      });
+
+      $('input[name="plan"]').on('change', function() {
+        $('#tandc').prop('checked', false);
       });
     });
   </script>

@@ -8,6 +8,10 @@
 </head>
 <body>
   <form>
+    <div data-bind="event: { change: function() { termsAccepted(false); } }">
+      <label><input type="radio" name="plan" value="hobbyist" checked="checked"> Hobbyist</label>
+      <label><input type="radio" name="plan" value="enterprise"> Enterprise</label>
+    </div>
     <div>
       <label><input type="checkbox" name="tandc" data-bind="checked: termsAccepted"> Accept Terms and Conditions</label>
     </div>

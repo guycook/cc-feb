@@ -1,5 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+/*@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);*/
 /**
  * Black theme for reveal.js.
  *
@@ -11,6 +11,11 @@
 body {
   background: #111111;
   background-color: #111111; }
+
+.reveal code {
+  font-family: "Source Code Pro", monospace;
+  font-size: 1.1em;
+}
 
 .reveal {
   font-family: "Open Sans", sans-serif;
@@ -35,7 +40,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eeeeee;
-  font-family: "Montserrat", Impact, sans-serif;
+  font-family: "Segoe UI", Impact, sans-serif;
   line-height: 0.9em;
   letter-spacing: -0.03em;
   text-transform: none;

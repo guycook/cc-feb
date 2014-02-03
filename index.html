@@ -30,12 +30,17 @@
         { src: 'revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
         { src: 'revealjs/plugin/markdown/markdown.js',
           condition: function() { return !!document.querySelector( '[data-markdown]' ); },
-          callback: function() { Array.prototype.forEach.call(document.querySelectorAll('section > p'), function(e) {
-            if(e.innerHTML.indexOf('&lt;') === 0) {
-              e.innerHTML = e.innerHTML.substr(4);
-              e.classList.add('fragment');
-            }
-          }); }
+          callback: function() {
+            Array.prototype.forEach.call(document.querySelectorAll('section > p'), function(e) {
+              if(e.innerHTML.indexOf('&lt;') === 0) {
+                e.innerHTML = e.innerHTML.substr(4);
+                e.classList.add('fragment');
+              }
+            });
+            Array.prototype.forEach.call(document.querySelectorAll('pre + pre .html'), function(e) {
+              e.parentNode.classList.add('fragment');
+            });
+          }
         },
         { src: 'revealjs/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
         { src: 'revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
